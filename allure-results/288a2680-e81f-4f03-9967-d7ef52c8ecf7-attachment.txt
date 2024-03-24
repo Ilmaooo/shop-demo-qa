@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": ".wc-block-components-notice-banner.is-error .wc-block-components-notice-banner__content"
+}
