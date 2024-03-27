@@ -36,17 +36,15 @@ class MyAccountPage extends Page {
         return $('button[type="submit"][name="login"]');
     }
 
-    getErrorMessageText() {
-        const errorMessageElement = this.errorMessage;
-        errorMessageElement.waitForDisplayed({
-            timeout: 3000,
-            timeoutMsg: 'Error message element is not displayed within 3 seconds'
+    async getErrorMessageText() {
+        await this.errorMessage.waitForDisplayed({
+            timeout: 5000,
+            timeoutMsg: 'Error message element is not displayed within 5 seconds'
         });
     
-        return errorMessageElement.getText();
+        return this.errorMessage.getText();
     }
     
-
     async login(username, password) {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
