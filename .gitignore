@@ -1,3 +1,4 @@
 # Ignore Allure report folder
 allure-results/
 node-modules/
+.env
