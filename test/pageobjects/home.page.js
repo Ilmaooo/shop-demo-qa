@@ -6,8 +6,8 @@ class HomePage extends Page{
         return $('#slide-6-layer-9');
     }
 
-    clickShopButton() {
-        this.shopButton.click();
+    async clickShopButton() {
+        await this.shopButton.click();
     }
 
     open() {
