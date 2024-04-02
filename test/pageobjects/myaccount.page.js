@@ -1,4 +1,3 @@
-import { $ } from '@wdio/globals';
 import Page from './page.js';
 
 class MyAccountPage extends Page {
@@ -16,7 +15,7 @@ class MyAccountPage extends Page {
         return $('button[type="submit"][name="login"]');
     }
 
-    get errorMessage() {
+    get notificationMessage() {
         return $('.wc-block-components-notice-banner.is-error .wc-block-components-notice-banner__content');
     }
 
@@ -37,17 +36,13 @@ class MyAccountPage extends Page {
         return $('button[type="submit"][name="login"]');
     }
 
-    async getErrorMessageText() {
-        await browser.waitUntil(async () => {
-            const errorMessageElement = this.errorMessage;
-            return await errorMessageElement.isDisplayed();
-        }, {
+    async getNotificationMessageText() {
+        await this.notificationMessage.waitForDisplayed({
             timeout: 5000,
-            timeoutMsg: 'Error message element is not displayed within 5 seconds'
+            timeoutMsg: 'Notification message element is not displayed within 5 seconds'
         });
-
-        const errorMessageElement = this.errorMessage;
-        return errorMessageElement.getText();
+    
+        return this.notificationMessage.getText();      
     }
 
     async login(username, password) {
