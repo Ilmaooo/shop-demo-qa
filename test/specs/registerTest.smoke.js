@@ -8,7 +8,7 @@ describe('Register User', () => {
         await MyAccountPage.open();
         await MyAccountPage.register(process.env.REG_USERNAME, process.env.REG_EMAIL, process.env.REG_PASSWORD);
 
-        const alertMessage = await MyAccountPage.getAlertMessageText();
-        expect(alertMessage).toHaveText('Registration complete. Please check your email.');
+        const successMessage = await MyAccountPage.getNotificationMessageText();
+        expect(successMessage).toHaveText('Registration complete. Please check your email.');
     });
 }); 
