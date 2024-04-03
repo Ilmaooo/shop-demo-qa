@@ -15,7 +15,7 @@ class MyAccountPage extends Page {
         return $('button[type="submit"][name="login"]');
     }
 
-    get alertMessage() {
+    get notificationMessage() {
         return $('.wc-block-components-notice-banner.is-error .wc-block-components-notice-banner__content');
     }
 
@@ -36,13 +36,13 @@ class MyAccountPage extends Page {
         return $('button[type="submit"][name="register"]');
     }
 
-    async getAlertMessageText() {
-        await this.alertMessage.waitForDisplayed({
+    async getNotificationMessageText() {
+        await this.notificationMessage.waitForDisplayed({
             timeout: 5000,
-            timeoutMsg: 'Alert message element is not displayed within 5 seconds'
+            timeoutMsg: 'Notification message element is not displayed within 5 seconds'
         });
     
-        return this.alertMessage.getText();      
+        return this.notificationMessage.getText();      
     }
 
     async login(username, password) {
