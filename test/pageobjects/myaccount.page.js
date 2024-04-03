@@ -29,11 +29,11 @@ class MyAccountPage extends Page {
     }
 
     get inputRegPassword(){
-        return($('#reg_password'));
+        return $('#reg_password');
     }
 
     get btnRegSubmit(){
-        return $('button[type="submit"][name="login"]');
+        return $('button[type="submit"][name="register"]');
     }
 
     async getNotificationMessageText() {
@@ -54,7 +54,7 @@ class MyAccountPage extends Page {
     async register(username, email, password){
         await this.inputRegUserName.setValue(username);
         await this.inputEmail.setValue(email);
-        await this.getInputPassword.setValue(password);
+        await this.inputRegPassword.setValue(password);
         await this.btnRegSubmit.click();
     }
 
