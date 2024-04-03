@@ -1,4 +1,3 @@
-import { $ } from '@wdio/globals';
 import Page from './page.js';
 
 class MyAccountPage extends Page {
@@ -16,7 +15,7 @@ class MyAccountPage extends Page {
         return $('button[type="submit"][name="login"]');
     }
 
-    get errorMessage() {
+    get alertMessage() {
         return $('.wc-block-components-notice-banner.is-error .wc-block-components-notice-banner__content');
     }
 
@@ -30,24 +29,20 @@ class MyAccountPage extends Page {
     }
 
     get inputRegPassword(){
-        return($('#reg_password'));
+        return $('#reg_password');
     }
 
     get btnRegSubmit(){
-        return $('button[type="submit"][name="login"]');
+        return $('button[type="submit"][name="register"]');
     }
 
-    async getErrorMessageText() {
-        await browser.waitUntil(async () => {
-            const errorMessageElement = this.errorMessage;
-            return await errorMessageElement.isDisplayed();
-        }, {
+    async getAlertMessageText() {
+        await this.alertMessage.waitForDisplayed({
             timeout: 5000,
-            timeoutMsg: 'Error message element is not displayed within 5 seconds'
+            timeoutMsg: 'Alert message element is not displayed within 5 seconds'
         });
-
-        const errorMessageElement = this.errorMessage;
-        return errorMessageElement.getText();
+    
+        return this.alertMessage.getText();      
     }
 
     async login(username, password) {
@@ -59,7 +54,7 @@ class MyAccountPage extends Page {
     async register(username, email, password){
         await this.inputRegUserName.setValue(username);
         await this.inputEmail.setValue(email);
-        await this.getInputPassword.setValue(password);
+        await this.inputRegPassword.setValue(password);
         await this.btnRegSubmit.click();
     }
 

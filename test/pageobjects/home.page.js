@@ -1,14 +1,13 @@
-import { $ } from '@wdio/globals';
 import Page from './page.js';
 
 class HomePage extends Page{
 
-    get ShopButton(){
+    get shopButton(){
         return $('#slide-6-layer-9');
     }
 
     clickShopButton() {
-        this.ShopButton.click();
+        this.shopButton.click();
     }
 
     open() {
