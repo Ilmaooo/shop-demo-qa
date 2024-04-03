@@ -7,7 +7,7 @@ describe('My Login', () => {
         await MyAccountPage.open();
         await MyAccountPage.login(process.env.USERNAME, process.env.PASSWORD);
         //check if the success message is displayed
-        const successMessage = await MyAccountPage.getNotificationMessageText();
+        const successMessage = await MyAccountPage.getAlertMessageText();
         expect(successMessage).toHaveText('Congratulations! You are now logged in.');
     });
 });
