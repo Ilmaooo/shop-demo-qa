@@ -15,7 +15,7 @@ class MyAccountPage extends Page {
         return $('button[type="submit"][name="login"]');
     }
 
-    get notificationMessage() {
+    get notificationtMessage() {
         return $('.wc-block-components-notice-banner.is-error .wc-block-components-notice-banner__content');
     }
 
@@ -37,12 +37,12 @@ class MyAccountPage extends Page {
     }
 
     async getNotificationMessageText() {
-        await this.notificationMessage.waitForDisplayed({
+        await this.notificationtMessage.waitForDisplayed({
             timeout: 5000,
-            timeoutMsg: 'Notification message element is not displayed within 5 seconds'
+            timeoutMsg: 'notification message element is not displayed within 5 seconds'
         });
     
-        return this.notificationMessage.getText();      
+        return this.notificationtMessage.getText();      
     }
 
     async login(username, password) {

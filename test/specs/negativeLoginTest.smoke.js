@@ -8,7 +8,7 @@ describe('My Login', () => {
         await MyAccountPage.login('invalid_username', 'invalid_password');
 
         // Check if the error message is displayed
-        const errorMessage = await MyAccountPage.getNotificationtMessageText();
+        const errorMessage = await MyAccountPage.getNotificationMessageText();
         expect(errorMessage).toHaveText('The username or password you entered is incorrect.');
     });
 });
