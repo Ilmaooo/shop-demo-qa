@@ -27,17 +27,17 @@ class ProductPage extends Page{
     }
 
     //get alert message
-    get alertMessage(){
+    get notiificationMessage(){
         return $('.wc-block-components-notice-banner');
     }
 
-    async getAlertMessageText() {
+    async getNotificationMessageText() {
         await this.alertMessage.waitForDisplayed({
             timeout: 5000,
-            timeoutMsg: 'Alert message element is not displayed within 5 seconds'
+            timeoutMsg: 'Notification message element is not displayed within 5 seconds'
         });
     
-        return this.alertMessage.getText();      
+        return this.notificationMessage.getText();      
     }
 
     // add product to the cart

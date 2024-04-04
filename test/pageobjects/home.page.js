@@ -18,8 +18,8 @@ class HomePage extends Page{
 
     //define the methods
 
-    clickShopButton() {
-        this.shopButton.click();
+    async clickShopButton() {
+        await this.shopButton.click();
     }
 
     scrollFirstProductIntoView() {
@@ -29,8 +29,8 @@ class HomePage extends Page{
         });
     }
 
-    clickFirstProduct() {
-        this.firstProductTitle.click();
+    async clickFirstProduct() {
+        await this.firstProductTitle.click();
     }
     
 

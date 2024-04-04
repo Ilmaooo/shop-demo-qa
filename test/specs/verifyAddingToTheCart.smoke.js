@@ -12,7 +12,7 @@ describe('Adding product to the cart', () => {
         await ProductPage.addToCart('Pink', '36');
         
         //assert that product is addedd successfully
-        const alertMessage = await ProductPage.getAlertMessageText();   
-        expect(alertMessage).toHaveText('“pink drop shoulder oversized t shirt” has been added to your cart.');
+        const notificationMessage = await ProductPage.getNotificationMessageText();   
+        expect(notificationMessage).toHaveText('“pink drop shoulder oversized t shirt” has been added to your cart.');
     });
 });
